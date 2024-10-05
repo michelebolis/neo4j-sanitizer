@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>neo4j_sanitizer.neo4j_utility API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>neo4j_sanitizer.neo4j_utility</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="neo4j_sanitizer.neo4j_utility.connect"><code class="name flex">
+<span>def <span class="ident">connect</span></span>(<span>URI: str, AUTH: Tuple[str, str], DB: str) ‑> neo4j._sync.driver.Driver</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Connect and return an access point to Neo4j database</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>URI</code></strong> :&ensp;<code>str</code></dt>
+<dd>link for the database session</dd>
+<dt><strong><code>AUTH</code></strong> :&ensp;<code>Tuple[str, str]</code></dt>
+<dd>tuple containing name of the use and the password</dd>
+<dt><strong><code>DB</code></strong> :&ensp;<code>str</code></dt>
+<dd>name of the database to use</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Driver</code></dt>
+<dd>the access point to the database</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countDBNodes"><code class="name flex">
+<span>def <span class="ident">countDBNodes</span></span>(<span>driver: neo4j._sync.driver.Driver) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the number of nodes in the database</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of nodes</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countDBRelationships"><code class="name flex">
+<span>def <span class="ident">countDBRelationships</span></span>(<span>driver: neo4j._sync.driver.Driver) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the number of relationships in the database</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of relationships</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countDistintValueLabelessNodes"><code class="name flex">
+<span>def <span class="ident">countDistintValueLabelessNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, property: str) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the number of distinct values of the property in nodes without labels</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>property to count</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of distinct values</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countDistintValueMultipleLabelsNodes"><code class="name flex">
+<span>def <span class="ident">countDistintValueMultipleLabelsNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, property: str) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the number of distinct values of a property in nodes with multiple labels.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>property to count</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of distinct values</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countDistintValueNodes"><code class="name flex">
+<span>def <span class="ident">countDistintValueNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, label: str, property: str) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the number of distinct values of the property in nodes with the given label</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>given label for the nodes</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>property to count</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of distinct values</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countDistintValueRels"><code class="name flex">
+<span>def <span class="ident">countDistintValueRels</span></span>(<span>driver: neo4j._sync.driver.Driver, rel: str, property: str) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the number of distinct values of the relationships in nodes with the given type</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>key of the property to count</dd>
+<dt><strong><code>rel</code></strong> :&ensp;<code>str</code></dt>
+<dd>given type for the relationship</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of distinct values</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countLabel"><code class="name flex">
+<span>def <span class="ident">countLabel</span></span>(<span>driver: neo4j._sync.driver.Driver, label: str) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Counts the occurrences of the label in the nodes</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>label to count</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of occurencies</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countLabeless"><code class="name flex">
+<span>def <span class="ident">countLabeless</span></span>(<span>driver: neo4j._sync.driver.Driver) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Counts the occurences of nodes without a label</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of occurencies</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countLabels"><code class="name flex">
+<span>def <span class="ident">countLabels</span></span>(<span>driver: neo4j._sync.driver.Driver, labels: List[str]) ‑> Dict[str, int]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Counts the occurrences of each label in the nodes</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>labels</code></strong> :&ensp;<code>List[str]</code></dt>
+<dd>list of labels</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict[str, int]</code></dt>
+<dd>dictionary containing for each label, the number of occurencies</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countMultipleLabelsNodes"><code class="name flex">
+<span>def <span class="ident">countMultipleLabelsNodes</span></span>(<span>driver: neo4j._sync.driver.Driver) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Counts the number of nodes with multiple labels</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of nodes with multiple labels</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countProperties"><code class="name flex">
+<span>def <span class="ident">countProperties</span></span>(<span>driver: neo4j._sync.driver.Driver, properties: List[str]) ‑> Dict[str, List[Tuple[int, str]]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns for each property, the number of occurencies for each label of nodes</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>properties</code></strong> :&ensp;<code>List[str]</code></dt>
+<dd>list of properties</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict[str, List[Tuple[int, str]]]</code></dt>
+<dd>for each property contains the occurences in each node with a label</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countPropertiesRels"><code class="name flex">
+<span>def <span class="ident">countPropertiesRels</span></span>(<span>driver: neo4j._sync.driver.Driver, properties: List[str]) ‑> Dict[str, Tuple[int, str]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns for each property, the number of occurencies for each type of relationship</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>properties</code></strong> :&ensp;<code>List[str]</code></dt>
+<dd>list of properties</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict[str, Tuple[int, str]]</code></dt>
+<dd>for each property contains the occurences in each relationship with a type</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countPropertyLabelessNode"><code class="name flex">
+<span>def <span class="ident">countPropertyLabelessNode</span></span>(<span>driver: neo4j._sync.driver.Driver, property: str) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Counts the occurrences of nodes without labels for a given property.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>property to count</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of occurrences</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countPropertyMultipleLabelsNode"><code class="name flex">
+<span>def <span class="ident">countPropertyMultipleLabelsNode</span></span>(<span>driver: neo4j._sync.driver.Driver, property: str) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Counts the occurrences of nodes with multiple labels for a given property.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>property to count</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of occurrences</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countPropertyNode"><code class="name flex">
+<span>def <span class="ident">countPropertyNode</span></span>(<span>driver: neo4j._sync.driver.Driver, property: str, label: str) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the number of occurencies of the properity in nodes with the given label</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>property to count</dd>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>given label for the nodes</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of occurencies</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countPropertyRel"><code class="name flex">
+<span>def <span class="ident">countPropertyRel</span></span>(<span>driver: neo4j._sync.driver.Driver, property: str, rel: str) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the number of occurencies of the properity in relationships with the given label</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>key of the property to count</dd>
+<dt><strong><code>rel</code></strong> :&ensp;<code>str</code></dt>
+<dd>given type for the relationship</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of occurencies</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countRelationship"><code class="name flex">
+<span>def <span class="ident">countRelationship</span></span>(<span>driver: neo4j._sync.driver.Driver, label: str) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the number of relatinships with the given label</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>given label</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of relatinships with the given label</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.countRelationships"><code class="name flex">
+<span>def <span class="ident">countRelationships</span></span>(<span>driver: neo4j._sync.driver.Driver, rels: List[str]) ‑> Dict[str, int]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the occurences of relationships for each types</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>rels</code></strong> :&ensp;<code>List[str]</code></dt>
+<dd>types of relationships</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict[str, int]</code></dt>
+<dd>dictionary containing for each type, the number of occurencies</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.db_profiling"><code class="name flex">
+<span>def <span class="ident">db_profiling</span></span>(<span>driver: neo4j._sync.driver.Driver) ‑> Tuple[List[str], List[str], List[str], List[str]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Profiles the structure of the database</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Tuple[List[str], List[str], List[str], List[str]]</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<ul>
+<li>keys of properties in nodes</li>
+<li>keys of properties in relationships</li>
+<li>labels of the nodes</li>
+<li>types of relationships</li>
+</ul></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.deleteNodes"><code class="name flex">
+<span>def <span class="ident">deleteNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, label: str, batch_size=2000) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Deletes all the nodes with the given label</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>given label </dd>
+<dt><strong><code>batch_size</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>number of operation in a transaction. Defaults to 2000.</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.deletePropertylessNodes"><code class="name flex">
+<span>def <span class="ident">deletePropertylessNodes</span></span>(<span>driver: neo4j._sync.driver.Driver) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Deletes all nodes that do not have any labels or properties.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.findCentralNode"><code class="name flex">
+<span>def <span class="ident">findCentralNode</span></span>(<span>driver: neo4j._sync.driver.Driver) ‑> Tuple[neo4j._data.Record, int]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds and returns the node with the largest number of relationships</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt>None if there are no relationships</dt>
+<dt><code>Tuple[Record, int]</code></dt>
+<dd>tuple containing the central nodes and the number of relationships
+['node'] -&gt; Record
+['count'] -&gt; int</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.findIsolatedNodes"><code class="name flex">
+<span>def <span class="ident">findIsolatedNodes</span></span>(<span>driver: neo4j._sync.driver.Driver) ‑> List[neo4j._data.Record]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds and returns the nodes with no relationships</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[Record]</code></dt>
+<dd>list of isolated nodes</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.getDistinctValuesLabelessNodes"><code class="name flex">
+<span>def <span class="ident">getDistinctValuesLabelessNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, prop: str) ‑> List[neo4j._data.Record]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns all the distinct value of a property in nodes with a given label</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>prop</code></strong> :&ensp;<code>str</code></dt>
+<dd>key of the property</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[Record]</code></dt>
+<dd>list of record with (prop)</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.getDistinctValuesMultipleLabelsNodes"><code class="name flex">
+<span>def <span class="ident">getDistinctValuesMultipleLabelsNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, prop: str) ‑> List[neo4j._data.Record]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns all the distinct value of a property in nodes with multiple labels</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>prop</code></strong> :&ensp;<code>str</code></dt>
+<dd>key of the property</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[Record]</code></dt>
+<dd>list of record with (prop)</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.getDistinctValuesNodes"><code class="name flex">
+<span>def <span class="ident">getDistinctValuesNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, label: str, prop: str) ‑> List[neo4j._data.Record]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns all the distinct value of a property in nodes with a given label</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>label of nodes</dd>
+<dt><strong><code>prop</code></strong> :&ensp;<code>str</code></dt>
+<dd>key of the property</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[Record]</code></dt>
+<dd>list of record with (prop)</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.getDistinctValuesRels"><code class="name flex">
+<span>def <span class="ident">getDistinctValuesRels</span></span>(<span>driver: neo4j._sync.driver.Driver, rel: str, prop: str) ‑> List[neo4j._data.Record]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns all the distinct value of a property in relationships with a given type</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>rel</code></strong> :&ensp;<code>str</code></dt>
+<dd>type of relationships</dd>
+<dt><strong><code>prop</code></strong> :&ensp;<code>str</code></dt>
+<dd>key of the property</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[Record]</code></dt>
+<dd>list of record with (prop)</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.getIngoingRelationships"><code class="name flex">
+<span>def <span class="ident">getIngoingRelationships</span></span>(<span>driver: neo4j._sync.driver.Driver, labels: List[str]) ‑> Dict[str, List[Tuple[int, str, str, int]]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns for each label, the list of ingoing relationships </p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>labels</code></strong> :&ensp;<code>List[str]</code></dt>
+<dd>list of labels</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict[str, List[Tuple[int, str, str, int]]]</code></dt>
+<dd><em>description</em> #TODO</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.getOutgoingRelationships"><code class="name flex">
+<span>def <span class="ident">getOutgoingRelationships</span></span>(<span>driver: neo4j._sync.driver.Driver, labels: List[str]) ‑> Dict[str, List[Tuple[int, str, str, int]]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns for each label, the list of outgoing relationships </p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>labels</code></strong> :&ensp;<code>List[str]</code></dt>
+<dd>list of labels</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict[str, List[Tuple[int, str, str, int]]]</code></dt>
+<dd><em>description</em> #TODO</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.getValuesNodes"><code class="name flex">
+<span>def <span class="ident">getValuesNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, label: str, property: str) ‑> List[neo4j._data.Record]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the list of all the pair (id, value) of the given property in nodes</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>label of the nodes</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>key of the property</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[Record]</code></dt>
+<dd>list of record with (id, value)</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.getValuesRels"><code class="name flex">
+<span>def <span class="ident">getValuesRels</span></span>(<span>driver: neo4j._sync.driver.Driver, rel: str, property: str) ‑> List[neo4j._data.Record]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the list of all the pair (id, value) of the given property in relationships</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>rel</code></strong> :&ensp;<code>str</code></dt>
+<dd>type of relation</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>key of the property</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[Record]</code></dt>
+<dd>list of record with (id, value)</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.printNodeInfo"><code class="name flex">
+<span>def <span class="ident">printNodeInfo</span></span>(<span>node: neo4j._data.Record) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Prints the information of the node</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>node</code></strong> :&ensp;<code>Record</code></dt>
+<dd>node with the information to be printed</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.removePropertyLabelessNodes"><code class="name flex">
+<span>def <span class="ident">removePropertyLabelessNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, property: str, batch_size=2000)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Remove the property in the nodes with the given label</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>label of the node</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>property to remove</dd>
+<dt><strong><code>batch_size</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>number of update in a transaction. Defaults to 2000.</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.removePropertyMultipleLabelsNodes"><code class="name flex">
+<span>def <span class="ident">removePropertyMultipleLabelsNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, property: str, batch_size=2000)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Remove the property in the nodes with multiple labels</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>label of the node</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>property to remove</dd>
+<dt><strong><code>batch_size</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>number of update in a transaction. Defaults to 2000.</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.removePropertyNodes"><code class="name flex">
+<span>def <span class="ident">removePropertyNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, label: str, property: str, batch_size=2000)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Remove the property in the nodes with the given label</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>label of the node</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>property to remove</dd>
+<dt><strong><code>batch_size</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>number of update in a transaction. Defaults to 2000.</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.removePropertyRels"><code class="name flex">
+<span>def <span class="ident">removePropertyRels</span></span>(<span>driver: neo4j._sync.driver.Driver, rel: str, property: str, batch_size=2000)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Remove the property in the relationships with the given type</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>rel</code></strong> :&ensp;<code>str</code></dt>
+<dd>type of the relation</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>property to remove</dd>
+<dt><strong><code>batch_size</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>number of update in a transaction. Defaults to 2000.</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.updateValueLabelessNodes"><code class="name flex">
+<span>def <span class="ident">updateValueLabelessNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, property: str, oldvalue: Any, newvalue: Any, batch_size=2000) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update the value of property in nodes without label</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>key of the property</dd>
+<dt><strong><code>oldvalue</code></strong> :&ensp;<code>Any</code></dt>
+<dd>old value of the property</dd>
+<dt><strong><code>newvalue</code></strong> :&ensp;<code>Any</code></dt>
+<dd>new value of the property</dd>
+<dt><strong><code>batch_size</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>number of update in a transaction. Defaults to 2000.</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.updateValueMultipleLabelsNodes"><code class="name flex">
+<span>def <span class="ident">updateValueMultipleLabelsNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, property: str, oldvalue: Any, newvalue: Any, batch_size=2000) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update the value of property in nodes with multiple labels</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>key of the property</dd>
+<dt><strong><code>oldvalue</code></strong> :&ensp;<code>Any</code></dt>
+<dd>old value of the property</dd>
+<dt><strong><code>newvalue</code></strong> :&ensp;<code>Any</code></dt>
+<dd>new value of the property</dd>
+<dt><strong><code>batch_size</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>number of update in a transaction. Defaults to 2000.</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.updateValueNodes"><code class="name flex">
+<span>def <span class="ident">updateValueNodes</span></span>(<span>driver: neo4j._sync.driver.Driver, label: str, property: str, oldvalue: Any, newvalue: Any, batch_size=2000) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update the value of property in relationships with the given label</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>label</code></strong> :&ensp;<code>str</code></dt>
+<dd>label of the nodes</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>key of the property</dd>
+<dt><strong><code>oldvalue</code></strong> :&ensp;<code>Any</code></dt>
+<dd>old value of the property</dd>
+<dt><strong><code>newvalue</code></strong> :&ensp;<code>Any</code></dt>
+<dd>new value of the property</dd>
+<dt><strong><code>batch_size</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>number of update in a transaction. Defaults to 2000.</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_utility.updateValueRels"><code class="name flex">
+<span>def <span class="ident">updateValueRels</span></span>(<span>driver: neo4j._sync.driver.Driver, rel: str, property: str, oldvalue: Any, newvalue: Any, batch_size=2000) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update the value of property in relationships with the given type</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>rel</code></strong> :&ensp;<code>str</code></dt>
+<dd>type of relationships</dd>
+<dt><strong><code>property</code></strong> :&ensp;<code>str</code></dt>
+<dd>key of the property</dd>
+<dt><strong><code>oldvalue</code></strong> :&ensp;<code>Any</code></dt>
+<dd>old value of the property</dd>
+<dt><strong><code>newvalue</code></strong> :&ensp;<code>Any</code></dt>
+<dd>new value of the property</dd>
+<dt><strong><code>batch_size</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>number of update in a transaction. Defaults to 2000.</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="neo4j_sanitizer" href="index.html">neo4j_sanitizer</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="neo4j_sanitizer.neo4j_utility.connect" href="#neo4j_sanitizer.neo4j_utility.connect">connect</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countDBNodes" href="#neo4j_sanitizer.neo4j_utility.countDBNodes">countDBNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countDBRelationships" href="#neo4j_sanitizer.neo4j_utility.countDBRelationships">countDBRelationships</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countDistintValueLabelessNodes" href="#neo4j_sanitizer.neo4j_utility.countDistintValueLabelessNodes">countDistintValueLabelessNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countDistintValueMultipleLabelsNodes" href="#neo4j_sanitizer.neo4j_utility.countDistintValueMultipleLabelsNodes">countDistintValueMultipleLabelsNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countDistintValueNodes" href="#neo4j_sanitizer.neo4j_utility.countDistintValueNodes">countDistintValueNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countDistintValueRels" href="#neo4j_sanitizer.neo4j_utility.countDistintValueRels">countDistintValueRels</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countLabel" href="#neo4j_sanitizer.neo4j_utility.countLabel">countLabel</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countLabeless" href="#neo4j_sanitizer.neo4j_utility.countLabeless">countLabeless</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countLabels" href="#neo4j_sanitizer.neo4j_utility.countLabels">countLabels</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countMultipleLabelsNodes" href="#neo4j_sanitizer.neo4j_utility.countMultipleLabelsNodes">countMultipleLabelsNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countProperties" href="#neo4j_sanitizer.neo4j_utility.countProperties">countProperties</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countPropertiesRels" href="#neo4j_sanitizer.neo4j_utility.countPropertiesRels">countPropertiesRels</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countPropertyLabelessNode" href="#neo4j_sanitizer.neo4j_utility.countPropertyLabelessNode">countPropertyLabelessNode</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countPropertyMultipleLabelsNode" href="#neo4j_sanitizer.neo4j_utility.countPropertyMultipleLabelsNode">countPropertyMultipleLabelsNode</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countPropertyNode" href="#neo4j_sanitizer.neo4j_utility.countPropertyNode">countPropertyNode</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countPropertyRel" href="#neo4j_sanitizer.neo4j_utility.countPropertyRel">countPropertyRel</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countRelationship" href="#neo4j_sanitizer.neo4j_utility.countRelationship">countRelationship</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.countRelationships" href="#neo4j_sanitizer.neo4j_utility.countRelationships">countRelationships</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.db_profiling" href="#neo4j_sanitizer.neo4j_utility.db_profiling">db_profiling</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.deleteNodes" href="#neo4j_sanitizer.neo4j_utility.deleteNodes">deleteNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.deletePropertylessNodes" href="#neo4j_sanitizer.neo4j_utility.deletePropertylessNodes">deletePropertylessNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.findCentralNode" href="#neo4j_sanitizer.neo4j_utility.findCentralNode">findCentralNode</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.findIsolatedNodes" href="#neo4j_sanitizer.neo4j_utility.findIsolatedNodes">findIsolatedNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.getDistinctValuesLabelessNodes" href="#neo4j_sanitizer.neo4j_utility.getDistinctValuesLabelessNodes">getDistinctValuesLabelessNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.getDistinctValuesMultipleLabelsNodes" href="#neo4j_sanitizer.neo4j_utility.getDistinctValuesMultipleLabelsNodes">getDistinctValuesMultipleLabelsNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.getDistinctValuesNodes" href="#neo4j_sanitizer.neo4j_utility.getDistinctValuesNodes">getDistinctValuesNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.getDistinctValuesRels" href="#neo4j_sanitizer.neo4j_utility.getDistinctValuesRels">getDistinctValuesRels</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.getIngoingRelationships" href="#neo4j_sanitizer.neo4j_utility.getIngoingRelationships">getIngoingRelationships</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.getOutgoingRelationships" href="#neo4j_sanitizer.neo4j_utility.getOutgoingRelationships">getOutgoingRelationships</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.getValuesNodes" href="#neo4j_sanitizer.neo4j_utility.getValuesNodes">getValuesNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.getValuesRels" href="#neo4j_sanitizer.neo4j_utility.getValuesRels">getValuesRels</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.printNodeInfo" href="#neo4j_sanitizer.neo4j_utility.printNodeInfo">printNodeInfo</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.removePropertyLabelessNodes" href="#neo4j_sanitizer.neo4j_utility.removePropertyLabelessNodes">removePropertyLabelessNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.removePropertyMultipleLabelsNodes" href="#neo4j_sanitizer.neo4j_utility.removePropertyMultipleLabelsNodes">removePropertyMultipleLabelsNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.removePropertyNodes" href="#neo4j_sanitizer.neo4j_utility.removePropertyNodes">removePropertyNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.removePropertyRels" href="#neo4j_sanitizer.neo4j_utility.removePropertyRels">removePropertyRels</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.updateValueLabelessNodes" href="#neo4j_sanitizer.neo4j_utility.updateValueLabelessNodes">updateValueLabelessNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.updateValueMultipleLabelsNodes" href="#neo4j_sanitizer.neo4j_utility.updateValueMultipleLabelsNodes">updateValueMultipleLabelsNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.updateValueNodes" href="#neo4j_sanitizer.neo4j_utility.updateValueNodes">updateValueNodes</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_utility.updateValueRels" href="#neo4j_sanitizer.neo4j_utility.updateValueRels">updateValueRels</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

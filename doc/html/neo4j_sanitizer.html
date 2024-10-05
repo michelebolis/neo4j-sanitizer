@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>neo4j_sanitizer.neo4j_sanitizer API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>neo4j_sanitizer.neo4j_sanitizer</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer"><code class="flex name class">
+<span>class <span class="ident">Neo4jSanitizer</span></span>
+<span>(</span><span>driver: neo4j._sync.driver.Driver, keyword_context_node: <a title="neo4j_sanitizer.context.Context" href="context.html#neo4j_sanitizer.context.Context">Context</a>, keyword_context_rels: <a title="neo4j_sanitizer.context.Context" href="context.html#neo4j_sanitizer.context.Context">Context</a>, ner_context_node: <a title="neo4j_sanitizer.context.Context" href="context.html#neo4j_sanitizer.context.Context">Context</a>, ner_context_rels: <a title="neo4j_sanitizer.context.Context" href="context.html#neo4j_sanitizer.context.Context">Context</a>, batch_size=10000)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Inizialization of the class</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code>Self</code></dt>
+<dd>instance of the class</dd>
+<dt><strong><code>driver</code></strong> :&ensp;<code>Driver</code></dt>
+<dd>access point to Neo4j</dd>
+<dt><strong><code>keyword_context_node</code></strong> :&ensp;<code>Context</code></dt>
+<dd>contexts to use for the sanitization strategy in nodes considering the keywords</dd>
+<dt><strong><code>keyword_context_rels</code></strong> :&ensp;<code>Context</code></dt>
+<dd>contexts to use for the sanitization strategy in relationships considering the keywords</dd>
+<dt><strong><code>ner_context_node</code></strong> :&ensp;<code>Context</code></dt>
+<dd>contexts to use for the sanitization strategy in nodes using ner models</dd>
+<dt><strong><code>ner_context_rels</code></strong> :&ensp;<code>Context</code></dt>
+<dd>contexts to use for the sanitization strategy in relationships using ner models</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Self</code></dt>
+<dd>instance of the class</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Neo4jSanitizer : 
+    models : Dict[str, Tuple[str, List[str]]] = {
+        &#34;geolocalization&#34; : (&#34;en_core_web_lg&#34;, [&#34;GPE&#34;], False),
+        &#34;identification&#34; : (&#34;en_core_web_lg&#34;, [&#34;PERSON&#34;], True),
+        &#34;health&#34; : (&#34;en_ner_bc5cdr_md&#34; , [&#34;DISEASE&#34;, &#34;CHEMICAL&#34;], True)
+    }
+    def __init__(self : Self, driver : Driver, 
+                 keyword_context_node : Context, keyword_context_rels : Context, 
+                 ner_context_node : Context, ner_context_rels : Context,
+                 batch_size = 10000) -&gt; Self :
+        &#34;&#34;&#34;Inizialization of the class
+
+        Args:
+            self (Self): instance of the class
+            driver (Driver): access point to Neo4j
+            keyword_context_node (Context): contexts to use for the sanitization strategy in nodes considering the keywords
+            keyword_context_rels (Context): contexts to use for the sanitization strategy in relationships considering the keywords
+            ner_context_node (Context): contexts to use for the sanitization strategy in nodes using ner models
+            ner_context_rels (Context): contexts to use for the sanitization strategy in relationships using ner models
+
+        Returns:
+            Self: instance of the class
+        &#34;&#34;&#34;
+        self.driver : Driver = driver
+        self.keyword_context_node : Context = keyword_context_node
+        self.keyword_context_rels : Context = keyword_context_rels
+        self.ner_context_node : Context = ner_context_node
+        self.ner_context_rels : Context = ner_context_rels
+        self.aes_key : bytes = random_key()
+        self.hmac_key : bytes = random_key()
+        if batch_size &lt;= 0 : raise Exception(&#34;Batch size must be positive&#34;)
+        self._batch_size : int = batch_size
+        self.getInfoFromDb()
+
+    def getInfoFromDb(self : Self) -&gt; None :
+        &#34;&#34;&#34;Get all the information from the database needed for sanitization
+
+        Args:
+            self (Self): instance of the class
+        &#34;&#34;&#34;
+        print(&#34;Counting nodes and relationships...&#34;)
+        self.countNodes : int = neo4j_utility.countDBNodes(self.driver)
+        self.countRelationships : int = neo4j_utility.countDBRelationships(self.driver)
+        print(&#34;Profiling the database...&#34;)
+        self.nodes_properties, self.relationships_properties, self.labels, self.relationships = neo4j_utility.db_profiling(self.driver)
+        print(&#34;Getting outgoing/ingoing relationships...&#34;)
+        self.outgoing_relationships : Dict[str, List[Tuple[int, str, str, int]]] = neo4j_utility.getOutgoingRelationships(self.driver, self.labels)
+        self.ingoing_relationships : Dict[str, List[Tuple[int, str, str, int]]] = neo4j_utility.getIngoingRelationships(self.driver, self.labels)
+        print(&#34;Eval properties keys...&#34;)
+        self.__classify_properties()
+        
+    def __classify_properties(self : Self) -&gt; None :
+        &#34;&#34;&#34;Evaluate the properties of the databases into warning or not and 
+           then classify each one as always included in the node/relationship or optional
+
+        Args:
+            self (Self): instance of the class
+        &#34;&#34;&#34;
+        self.warning_properties = self.keyword_context_node.evalInContext(self.nodes_properties)
+        self.warning_properties_in_rel = self.keyword_context_rels.evalInContext(self.relationships_properties)
+        self.classified_properties_nodes = {}
+        for label in self.labels :
+            if neo4j_utility.countLabel(self.driver, label) &gt; 0 :
+                self.classified_properties_nodes[label] = (
+                    self.__classify_property_in_node(label, self.warning_properties), 
+                    self.__classify_property_in_node(label, [prop for prop in self.nodes_properties if prop not in self.warning_properties])
+                )
+        self.classified_properties_rels = {}
+        for rel in self.relationships : 
+            self.classified_properties_rels[rel] = (
+                self.__classify_property_in_rel(rel, self.warning_properties_in_rel), 
+                self.__classify_property_in_rel(rel, [prop for prop in self.relationships_properties if prop not in self.warning_properties_in_rel])
+            )
+        
+    def print_info(self : Self) -&gt; None :
+        &#34;&#34;&#34;Print the info got with getInfoFromDb()
+
+        Args:
+            self (Self): instance of the class
+        &#34;&#34;&#34;
+        print(&#34;countNodes:&#34;, self.countNodes)
+        print(&#34;countRelationships&#34;, self.countRelationships)
+        print(&#34;properties&#34;, self.nodes_properties)
+        print(&#34;labels&#34;, self.labels)
+        print(&#34;relationships&#34;, self.relationships)
+        print(&#34;outgoing_relationships&#34;, self.outgoing_relationships)
+        print(&#34;ingoing_relationships&#34;, self.ingoing_relationships)
+
+    def show_info(self : Self) -&gt; None :
+        &#34;&#34;&#34;Better visualization of the infos got with getInfoFromDb()
+
+        Args:
+            self (Self): instance of the class
+        &#34;&#34;&#34;
+        print(&#34;Nodes in db:&#34;, self.countNodes)
+        print(&#34;Relationships in db:&#34;, self.countRelationships)
+        print(&#34;Properties in nodes:&#34;, self.nodes_properties)
+        print(&#34;Properties in relationships:&#34;, self.relationships_properties)
+        print(&#34;Labels:&#34;, self.labels)
+        print(&#34;Relationships:&#34;, self.relationships)
+
+        #########
+        # Labels analysis
+        #########
+
+        print()
+        # Given a warning label, count the type of relationship what go out to/in a specific label
+        print(&#34; - Outgoing relationships analyses&#34;)
+        for label, relation in self.outgoing_relationships.items() :
+            if len(relation) == 0 : print(&#34;No outgoing relation for&#34;, label)
+            else :
+                total = 0
+                for rel in relation : total += rel[0] 
+                print(&#34;from&#34;, label, &#34;there are&#34;, total, &#34;outgoing relationship with:&#34;)
+                for rel in relation :
+                    count = neo4j_utility.countLabel(self.driver, label)
+                    if count &gt; 0 :
+                        print(f&#34;\t {rel[1]} to {rel[2]} times {rel[0]} {format(rel[0] / total, &#39;.2%&#39;)} of outgoing relationship; no rel in {rel[3]} nodes {format(rel[3]/count, &#39;.2%&#39;)}&#34;)
+
+        print()
+        print(&#34; - Ingoing relationships analyses&#34;)    
+        for label, relation in self.ingoing_relationships.items() :
+            if len(relation) == 0 : print(&#34;No ingoing relation for&#34;, label)
+            else :
+                total = 0
+                for rel in relation : total += rel[0] 
+                print(&#34;to&#34;, label, &#34;there are&#34;, total, &#34;ingoing relationship with:&#34;)
+                for rel in relation :
+                    count = neo4j_utility.countLabel(self.driver, label)
+                    if count &gt; 0 : 
+                        print(f&#34;\t {rel[1]} from {rel[2]} times {rel[0]} {format(rel[0] / total, &#39;.2%&#39;)} of ingoing relationship; no rel in {str(rel[3])} nodes {format(rel[3]/count, &#39;.2%&#39;)}&#34;)
+
+        #########
+        # Properties analysis
+        #########
+        # Count the warning property and what&#39;s label of the node
+        print()
+        print(&#34; - Warning properties analyses&#34;)
+        for key, ((warning_always, warning_optional), (always, optional)) in self.classified_properties_nodes.items() :
+            if len(warning_always)&gt;0 or len(warning_optional)&gt;0 or len(always)&gt;0 or len(optional)&gt;0 :
+                print(&#34;In label&#34;, key)
+                if len(warning_always) &gt; 0 : 
+                    print(&#34;\talways warning&#34;) 
+                    for prop, count in warning_always : print(&#34;\t\t&#34;, prop, count)
+                if len(warning_optional) &gt; 0 : 
+                    print(&#34;\toptional warning&#34;)
+                    for prop, count in warning_optional : print(&#34;\t\t&#34;, prop, count)
+                if len(always) &gt; 0 : 
+                    print(&#34;\talways no warning&#34;)
+                    for prop, count in always : print(&#34;\t\t&#34;, prop, count)
+                if len(optional) &gt; 0 : 
+                    print(&#34;\toptional no warning&#34;)
+                    for prop, count in optional : print(&#34;\t\t&#34;, prop, count)
+
+        if neo4j_utility.countLabeless(self.driver) &gt; 0 :
+            print(&#34;\nIn labeless nodes:&#34;)
+            for property in self.nodes_properties :
+                n = neo4j_utility.countPropertyLabelessNode(self.driver, property)
+                if n &gt; 0 : 
+                    if property in self.warning_properties :
+                        print(&#34;\twarning&#34;, property, n)
+                    else : print(&#34;\tno warning&#34;, property, n)
+        
+        if neo4j_utility.countMultipleLabelsNodes(self.driver) &gt; 0 :
+            print(&#34;\nIn nodes with multiple labels:&#34;)
+            for property in self.nodes_properties :
+                n = neo4j_utility.countPropertyMultipleLabelsNode(self.driver, property)
+                if n &gt; 0 :
+                    if property in self.warning_properties :
+                        print(&#34;\twarning&#34;, property, n)
+                    else : print(&#34;\tno warning&#34;, property, n)
+
+        for key, ((warning_always, warning_optional), (always, optional)) in self.classified_properties_rels.items() :
+            if len(warning_always)&gt;0 or len(warning_optional)&gt;0 or len(always)&gt;0 or len(optional)&gt;0 :
+                print(&#34;In rel&#34;, key)
+                if len(warning_always) &gt; 0 : 
+                    print(&#34;\talways warning&#34;) 
+                    for prop, count in warning_always : print(&#34;\t\t&#34;, prop, count)
+                if len(warning_optional) &gt; 0 : 
+                    print(&#34;\toptional warning&#34;)
+                    for prop, count in warning_optional : print(&#34;\t\t&#34;, prop, count)
+                if len(always) &gt; 0 : 
+                    print(&#34;\talways no warning&#34;)
+                    for prop, count in always : print(&#34;\t\t&#34;, prop, count)
+                if len(optional) &gt; 0 : 
+                    print(&#34;\toptional no warning&#34;)
+                    for prop, count in optional : print(&#34;\t\t&#34;, prop, count)
+        # Outliners
+        #######
+        # Count the node without labels and to what node with labels are in relation
+        print()
+        print(&#34; - Node without labels:&#34;, neo4j_utility.countLabeless(self.driver))
+
+        # Central Node (node with max number of relationships)
+        print()
+        print(&#34; - Central Node&#34;)
+        node = neo4j_utility.findCentralNode(self.driver)
+        if node == None : print(&#34;No central node found&#34;)
+        else :
+            neo4j_utility.printNodeInfo(node[&#39;node&#39;])
+            print(&#34;In relation with&#34;, node[&#39;count&#39;], &#34;nodes&#34;)
+
+        # Isoleted Nodes (no relationships)
+        print()
+        isolatedNodes = neo4j_utility.findIsolatedNodes(self.driver)
+        print(&#34; - Isolated Nodes:&#34;, len(isolatedNodes))
+        print()
+    
+    def __classify_property_in_node(self : Self, label : str, properties : List[str]) -&gt; Tuple[List[Tuple[str, int]], List[Tuple[str, int]]] :
+        &#34;&#34;&#34;Classify each property in nodes with the given label, as always included in the node or optional
+
+        Args:
+            self (Self): instance of the class
+            label (str): label of the nodes
+            properties (List[str]): list of properties
+
+        Returns:
+            Tuple[List[Tuple[str, int]], List[Tuple[str, int]]]: 
+            returns two lists
+            - the list of the always included warning properties with their occurencies and the optional included warning properties with their occurencies 
+            - the list of the always included non warning properties with their occurencies and the optional included non warning properties with their occurencies 
+        &#34;&#34;&#34;
+        always = []
+        optional = []
+        count_label = neo4j_utility.countLabel(self.driver, label)
+        for prop in properties :
+            times = neo4j_utility.countPropertyNode(self.driver, prop, label)
+            if times == count_label : always.append((prop, times))
+            elif times &gt; 0 : optional.append((prop, times))
+        return (always, optional)
+    
+    def __classify_property_in_rel(self, relation : str, properties : List[str]) -&gt; Tuple[List[str], List[Tuple[str, int]]] :  
+        &#34;&#34;&#34;Classify each property in relationships with the given type, as always included in the relationship or optional
+
+        Args:
+            self (Self): instance of the class
+            relation (str): type of relationship
+            properties (List[str]): list of properties
+
+        Returns:
+            Tuple[List[Tuple[str, int]], List[Tuple[str, int]]]: 
+            returns two lists
+            - the list of the always included warning properties with their occurencies and the optional included warning properties with their occurencies 
+            - the list of the always included non warning properties with their occurencies and the optional included non warning properties with their occurencies 
+        &#34;&#34;&#34;
+        always = []
+        optional = []
+        count_rel = neo4j_utility.countRelationship(self.driver, relation)
+        for prop in properties :
+            times = neo4j_utility.countPropertyRel(self.driver, prop, relation)
+            if times == count_rel : always.append((prop, times))
+            elif times &gt; 0 : optional.append((prop, times))
+        return (always, optional)
+
+    ###############
+    # Sanitizations
+    ############### 
+    def sanitization_brutal_delete(self : Self) -&gt; None :
+        &#34;&#34;&#34;Sanitize all the detected warning properties by removing them in nodes and relationship. 
+           If there are no other properties in the node, it&#39;ll be deleted
+        Args:
+            self (Self): instance of the class
+        &#34;&#34;&#34;
+        sanitization_brutal_delete(self, batch_size = self._batch_size)
+        print(&#34;Updating info of the database...&#34;)
+        self.getInfoFromDb()
+    
+    def sanitization_encrypt(self : Self) -&gt; None : 
+        &#34;&#34;&#34;Sanitize all the detected warning properties by encrypting their values. 
+        The keys used are accessible by self.aes_key and self.hmac_key.
+
+        Args:
+            self (Self): instance of the class
+        &#34;&#34;&#34;
+        sanitization_encrypt(self, batch_size = self._batch_size)
+        print(&#34;aes_key:&#34;, self.aes_key)
+        print(&#34;hmac_key:&#34;, self.hmac_key)
+        print(&#34;Updating info of the database...&#34;)
+        for label, ((encrypted1, encrypted2), (l1, l2)) in self.classified_properties_nodes.items() :
+            self.classified_properties_nodes[label] = (([], []), (l1 + encrypted1, l2 + encrypted2))
+        for label, ((encrypted1, encrypted2), (l1, l2)) in self.classified_properties_rels.items() :
+            self.classified_properties_rels[label] = (([], []), (l1 + encrypted1, l2 + encrypted2))
+
+    def sanitization_faker(self : Self, fakers : List[Tuple[str, Callable[[], Any]]]) -&gt; None :
+        &#34;&#34;&#34;Sanitize all the properties for which has been given a faker function
+
+        Args:
+            self (Self): instance of the class
+            fakers (List[Tuple[str, Callable[[], Any]]]): list of Tuple containing
+            - key of the property
+            - function that returns a random value for the property
+        &#34;&#34;&#34;
+        fakers_list = []
+        for prop, faker in fakers :
+            if prop in self.nodes_properties + self.relationships_properties :
+                fakers_list.append((prop, faker)) 
+            else : print(&#34;Property&#34;, prop, &#34;not in the database instance&#34;)
+        sanitization_faker(self, fakers_list, batch_size = self._batch_size)
+    
+    def sanitization_ner_suppression(self : Self, blacklist = [], multiprocessing = False) -&gt; None :
+        &#34;&#34;&#34;Sanitize all the entities recognized by NER models by replacing the entity with *.
+
+        Args:
+            self (Self): instance of the class
+            blacklist (list, optional): list of properties to ignore in NER process. Defaults to [].
+            multiprocessing (bool, optional): Whether to use multiprocessing for sanitization. Defaults to False.
+        &#34;&#34;&#34;
+        sanitization_suppression(self, blacklist = blacklist, batch_size = self._batch_size, multiprocessing = multiprocessing)
+
+    def sanitization_ner_anonimize(self : Self, blacklist = [], multiprocessing = False) -&gt; None :
+        &#34;&#34;&#34;Sanitize all the entities recognized by NER models by replacing the entity with its label.
+
+        Args:
+            self (Self): instance of the class
+            blacklist (list, optional): list of properties to ignore in NER process. Defaults to [].
+            multiprocessing (bool, optional): Whether to use multiprocessing for sanitization. Defaults to False.
+        &#34;&#34;&#34;
+        sanitization_anonimize(self, blacklist = blacklist, batch_size = self._batch_size, multiprocessing = multiprocessing)
+
+    def sanitization_ner_encrypt(self : Self, blacklist = [], multiprocessing = False) -&gt; None :
+        &#34;&#34;&#34;Sanitize all the entities recognized by NER models by replacing the entity with its encrypted value.
+        The keys used are accessible by self.aes_key and self.hmac_key.
+
+        Args:
+            self (Self): instance of the class
+            blacklist (list, optional): list of properties to ignore in NER process. Defaults to [].
+            multiprocessing (bool, optional): Whether to use multiprocessing for sanitization. Defaults to False.
+        &#34;&#34;&#34;
+        sanitization_ner_encrypt(self, blacklist = blacklist, batch_size = self._batch_size, multiprocessing = multiprocessing)
+        print(&#34;aes_key:&#34;, self.aes_key)
+        print(&#34;hmac_key:&#34;, self.hmac_key)
+
+    def sanitization_ner_faker(self : Self, fakers : Dict[str, Callable[[], str]], blacklist = [], multiprocessing = False) -&gt; None :
+        &#34;&#34;&#34;Sanitize all the entities recognized by NER models by replacing the entity with a random value provided by a faker method.
+        If the faker for the label of the entity is not provided, the entity value will be replaced with &#34;*&#34;.
+
+        Args:
+            self (Self): instance of the class
+            fakers (Dict[str, Callable[[], str]]): lists for each label of entity, a method f() -&gt; str that returns a random value for the label
+            blacklist (list, optional): list of properties to ignore in NER process. Defaults to [].
+            multiprocessing (bool, optional): Whether to use multiprocessing for sanitization. Defaults to False.
+        &#34;&#34;&#34;
+        self.fakers = fakers
+        sanitization_ner_faker(self, blacklist = blacklist, batch_size = self._batch_size, multiprocessing = multiprocessing)
+
+    def __tot_properties(self : Self) -&gt; int :
+        tot = 0
+        for label, ((warning_always, warning_optional), (always, optional)) in self.classified_properties_nodes.items() :
+            tot += neo4j_utility.countLabel(self.driver, label) * (len(warning_always) + len(always))
+            for _, count in warning_optional+optional : tot += count
+        for label, ((warning_always, warning_optional), (always, optional)) in self.classified_properties_rels.items() :
+            tot += neo4j_utility.countRelationship(self.driver, label) * (len(warning_always) + len(always))
+            for _, count in warning_optional+optional : tot += count
+        return tot
+    
+    def estimate_sanitizationKeyword(self : Self) -&gt; int :
+        &#34;&#34;&#34;Estimate the number of property affected by any of the sanitization that use the keyword
+
+        Args:
+            self (Self): instance of the class
+
+        Returns:
+            int: number of property
+        &#34;&#34;&#34;
+        tot = 0
+        for _, ((warning_always, warning_optional), _) in self.classified_properties_nodes.items() :
+            for _, count in warning_always + warning_optional : tot += count
+        for _, ((warning_always, warning_optional), _) in self.classified_properties_rels.items() :
+            for _, count in warning_always + warning_optional : tot += count
+        for prop in self.warning_properties : tot += neo4j_utility.countPropertyLabelessNode(self.driver, prop)
+        for prop in self.warning_properties : tot += neo4j_utility.countPropertyMultipleLabelsNode(self.driver, prop)
+        return tot
+    
+    def estimate_sanitizationNer(self : Self, blacklist = []) -&gt; int :
+        &#34;&#34;&#34;Estimate the number of distinct values affected by any of the sanitization that use the NER
+        Note: numeric values are included in this counting but skipped in the NER sanitization
+
+        Args:
+            self (Self): instance of the class
+            blacklist (list, optional): list of properties to ignore in NER process. Defaults to [].
+
+        Returns:
+            int: number of distinct values
+        &#34;&#34;&#34;
+        tot = 0
+        for label, ((warning_always, warning_optional), (always, optional)) in self.classified_properties_nodes.items() :
+            for prop, _ in warning_always + warning_optional + always + optional :
+                if prop in blacklist : continue
+                tot += neo4j_utility.countDistintValueNodes(self.driver, label, prop)
+        for label, ((warning_always, warning_optional), (always, optional)) in self.classified_properties_rels.items() :
+            for prop, _ in warning_always + warning_optional + always + optional :
+                if prop in blacklist : continue
+                tot += neo4j_utility.countDistintValueRels(self.driver, label, prop)
+        for prop in self.warning_properties : tot += neo4j_utility.countDistintValueLabelessNodes(self.driver, prop)
+        for prop in self.warning_properties : tot += neo4j_utility.countDistintValueMultipleLabelsNodes(self.driver, prop)
+        return tot</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.models"><code class="name">var <span class="ident">models</span> : Dict[str, Tuple[str, List[str]]]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.estimate_sanitizationKeyword"><code class="name flex">
+<span>def <span class="ident">estimate_sanitizationKeyword</span></span>(<span>self: Self) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Estimate the number of property affected by any of the sanitization that use the keyword</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code>Self</code></dt>
+<dd>instance of the class</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of property</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.estimate_sanitizationNer"><code class="name flex">
+<span>def <span class="ident">estimate_sanitizationNer</span></span>(<span>self: Self, blacklist=[]) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Estimate the number of distinct values affected by any of the sanitization that use the NER
+Note: numeric values are included in this counting but skipped in the NER sanitization</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code>Self</code></dt>
+<dd>instance of the class</dd>
+<dt><strong><code>blacklist</code></strong> :&ensp;<code>list</code>, optional</dt>
+<dd>list of properties to ignore in NER process. Defaults to [].</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>number of distinct values</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.getInfoFromDb"><code class="name flex">
+<span>def <span class="ident">getInfoFromDb</span></span>(<span>self: Self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get all the information from the database needed for sanitization</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code>Self</code></dt>
+<dd>instance of the class</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.print_info"><code class="name flex">
+<span>def <span class="ident">print_info</span></span>(<span>self: Self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Print the info got with getInfoFromDb()</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code>Self</code></dt>
+<dd>instance of the class</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_brutal_delete"><code class="name flex">
+<span>def <span class="ident">sanitization_brutal_delete</span></span>(<span>self: Self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sanitize all the detected warning properties by removing them in nodes and relationship.
+If there are no other properties in the node, it'll be deleted</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code>Self</code></dt>
+<dd>instance of the class</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_encrypt"><code class="name flex">
+<span>def <span class="ident">sanitization_encrypt</span></span>(<span>self: Self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sanitize all the detected warning properties by encrypting their values.
+The keys used are accessible by self.aes_key and self.hmac_key.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code>Self</code></dt>
+<dd>instance of the class</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_faker"><code class="name flex">
+<span>def <span class="ident">sanitization_faker</span></span>(<span>self: Self, fakers: List[Tuple[str, Callable[[], Any]]]) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sanitize all the properties for which has been given a faker function</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code>Self</code></dt>
+<dd>instance of the class</dd>
+<dt><strong><code>fakers</code></strong> :&ensp;<code>List[Tuple[str, Callable[[], Any]]]</code></dt>
+<dd>list of Tuple containing</dd>
+</dl>
+<ul>
+<li>key of the property</li>
+<li>function that returns a random value for the property</li>
+</ul></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_ner_anonimize"><code class="name flex">
+<span>def <span class="ident">sanitization_ner_anonimize</span></span>(<span>self: Self, blacklist=[], multiprocessing=False) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sanitize all the entities recognized by NER models by replacing the entity with its label.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code>Self</code></dt>
+<dd>instance of the class</dd>
+<dt><strong><code>blacklist</code></strong> :&ensp;<code>list</code>, optional</dt>
+<dd>list of properties to ignore in NER process. Defaults to [].</dd>
+<dt><strong><code>multiprocessing</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Whether to use multiprocessing for sanitization. Defaults to False.</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_ner_encrypt"><code class="name flex">
+<span>def <span class="ident">sanitization_ner_encrypt</span></span>(<span>self: Self, blacklist=[], multiprocessing=False) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sanitize all the entities recognized by NER models by replacing the entity with its encrypted value.
+The keys used are accessible by self.aes_key and self.hmac_key.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code>Self</code></dt>
+<dd>instance of the class</dd>
+<dt><strong><code>blacklist</code></strong> :&ensp;<code>list</code>, optional</dt>
+<dd>list of properties to ignore in NER process. Defaults to [].</dd>
+<dt><strong><code>multiprocessing</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Whether to use multiprocessing for sanitization. Defaults to False.</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_ner_faker"><code class="name flex">
+<span>def <span class="ident">sanitization_ner_faker</span></span>(<span>self: Self, fakers: Dict[str, Callable[[], str]], blacklist=[], multiprocessing=False) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sanitize all the entities recognized by NER models by replacing the entity with a random value provided by a faker method.
+If the faker for the label of the entity is not provided, the entity value will be replaced with "*".</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code>Self</code></dt>
+<dd>instance of the class</dd>
+<dt><strong><code>fakers</code></strong> :&ensp;<code>Dict[str, Callable[[], str]]</code></dt>
+<dd>lists for each label of entity, a method f() -&gt; str that returns a random value for the label</dd>
+<dt><strong><code>blacklist</code></strong> :&ensp;<code>list</code>, optional</dt>
+<dd>list of properties to ignore in NER process. Defaults to [].</dd>
+<dt><strong><code>multiprocessing</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Whether to use multiprocessing for sanitization. Defaults to False.</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_ner_suppression"><code class="name flex">
+<span>def <span class="ident">sanitization_ner_suppression</span></span>(<span>self: Self, blacklist=[], multiprocessing=False) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sanitize all the entities recognized by NER models by replacing the entity with *.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code>Self</code></dt>
+<dd>instance of the class</dd>
+<dt><strong><code>blacklist</code></strong> :&ensp;<code>list</code>, optional</dt>
+<dd>list of properties to ignore in NER process. Defaults to [].</dd>
+<dt><strong><code>multiprocessing</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Whether to use multiprocessing for sanitization. Defaults to False.</dd>
+</dl></div>
+</dd>
+<dt id="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.show_info"><code class="name flex">
+<span>def <span class="ident">show_info</span></span>(<span>self: Self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Better visualization of the infos got with getInfoFromDb()</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code>Self</code></dt>
+<dd>instance of the class</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="neo4j_sanitizer" href="index.html">neo4j_sanitizer</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer">Neo4jSanitizer</a></code></h4>
+<ul class="">
+<li><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.estimate_sanitizationKeyword" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.estimate_sanitizationKeyword">estimate_sanitizationKeyword</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.estimate_sanitizationNer" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.estimate_sanitizationNer">estimate_sanitizationNer</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.getInfoFromDb" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.getInfoFromDb">getInfoFromDb</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.models" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.models">models</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.print_info" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.print_info">print_info</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_brutal_delete" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_brutal_delete">sanitization_brutal_delete</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_encrypt" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_encrypt">sanitization_encrypt</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_faker" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_faker">sanitization_faker</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_ner_anonimize" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_ner_anonimize">sanitization_ner_anonimize</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_ner_encrypt" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_ner_encrypt">sanitization_ner_encrypt</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_ner_faker" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_ner_faker">sanitization_ner_faker</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_ner_suppression" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.sanitization_ner_suppression">sanitization_ner_suppression</a></code></li>
+<li><code><a title="neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.show_info" href="#neo4j_sanitizer.neo4j_sanitizer.Neo4jSanitizer.show_info">show_info</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>
